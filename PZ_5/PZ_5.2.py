@@ -1,27 +1,25 @@
-# Функция вычисляет, на сколько квадратов разрезать прямоугольник A x B,
-# отрезая каждый раз квадрат наибольшей стороны.
+#Описать функцию Mean(X, Y, AMean, GMean), вычисляющую среднее
+#арифметическое AMean = (X+Y)/2 и среднее геометрическое GMean = y/X Y двух
+#положительных чисел X и Y (X и Y — входные, AMean и GMean — выходные
+#параметры вещественного типа). С помощью этой функции найти среднее
+#арифметическое и среднее геометрическое для пар (A, B), (A, C), (A, D), если даны
+#A, B, C, D.
+def Mean(x, y):
+    am = (x + y) / 2
+    gm = (x * y) ** 0.5
+    return am, gm
 
-def count_squares(A, B):
-    count = 0
-    while A != 0 and B != 0:
-        if A > B:
-            count += A // B
-            A = A % B
-        else:
-            count += B // A
-            B = B % A
-    return count
+try:
+    a = int(input("A: "))
+    b = int(input("B: "))
+    c = int(input("C: "))
+    d = int(input("D: "))
+    am1, gm1 = Mean(a, b)
+    am2, gm2 = Mean(a, c)
+    am3, gm3 = Mean(a, d)
 
-while True:
-    try:
-        A = int(input("Введите длину стороны A (натуральное число): "))
-        B = int(input("Введите длину стороны B (натуральное число): "))
-        if A > 0 and B > 0:
-            break
-        else:
-            print("Введите натуральные числа больше нуля.")
-    except ValueError:
-        print("Неправильно ввели! Попробуйте ещё раз.")
-
-result = count_squares(A, B)
-print("Можно разрезать на", result, "квадратов")
+    print(f"(A,B): ср.арифм. = {am1}, ср.геом. = {gm1}")
+    print(f"(A,C): ср.арифм. = {am2}, ср.геом. = {gm2}")
+    print(f"(A,D): ср.арифм. = {am3}, ср.геом. = {gm3}")
+except ValueError:
+    print('Неправильно ввели')
