@@ -1,0 +1,14 @@
+# Подсчёт количества знаков препинания в русскоязычном предложении
+
+def count_punctuations(s):
+    # Список распространённых знаков препинания
+    punctuations = ".,!?;:-—()\"'«»…"
+    count = 0
+    for ch in s:
+        if ch in punctuations:
+            count += 1
+    return count
+
+sentence = input("Введите русское предложение: ")
+punct_count = count_punctuations(sentence)
+print("Количество знаков препинания в строке:", punct_count)
