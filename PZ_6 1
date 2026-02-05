@@ -1,0 +1,16 @@
+# Подсчёт количества строчных латинских и русских букв в строке
+
+def count_lower_letters(s):
+    count = 0
+    for ch in s:
+        # Латинские строчные a-z
+        if 'a' <= ch <= 'z':
+            count += 1
+        # Русские строчные а-я и ё
+        elif 'а' <= ch <= 'я' or ch == 'ё':
+            count += 1
+    return count
+
+text = input("Введите строку: ")
+result = count_lower_letters(text)
+print("Количество строчных латинских и русских букв:", result)
